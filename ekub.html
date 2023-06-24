@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid #6eb4df;
+  border-collapse: collapse;
+
+}
+/* .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+        display: none !important;
+    }
+    body {
+        top: 0px !important;
+    }
+    .goog-tooltip {
+        display: none !important;
+    }
+    .goog-tooltip:hover {
+        display: none !important;
+    }
+    .goog-text-highlight {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .goog-te-banner-frame {
+ left: -180px !important;
+} */
+</style>
+<body style="font-weight: 300; background-color: #031927; color: white; font-size: 15px; height: auto;"> 
+    
+    <!-- <header>
+        <span class="navbar-nav mr-sm-2" id="google_translate_element"></span>
+    </header> -->
+    
+    <main>
+        <div class="container d-flex flex-row justify-content-center align-content-center">
+            <div class="row d-flex flex-row justify-content-center align-content-center">
+                <div class="col-md-12 col-sm-10 my-2" style="border-radius: 50px; box-shadow: 0px 0px 10px #2f5c78; width: 400px;">
+                    <div class="headder">
+                        <h1 class="text-center py-3">ዕቁብ</h1> <img src="" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid  p-4 mb-4  was-validated" id="div">
+            <div class="row">
+                
+                <!-- position fixed not working as intended -->
+                
+                <div class="col-md-6 needs-validation d-flex flex-column justify-content-center align-content-center left" style="height: auto; box-shadow: 10px 10px 0px px rgb(250, 247, 250); border-radius: 10px;" novalidate>
+    <div id="alert" style="color: red;"></div>
+                    
+                    <h4 class="text-center"> አባል ይሁኑ</h4>
+                    <!-- Language ends here -->
+                   
+
+                    <form class="form-check" style="width: 70%;">
+
+                        <!-- Choose Amount -->
+                        <div>
+                            <label for="Name" class="form-label px-2">የእቁብ መጠን ይምረጡ </label><br>
+
+                        <select name="ekubs" id="ekubs" class="mb-5 mx-2 form-select-lg">
+                
+                        </select>
+                        </div>
+                    <div class="mb-1">
+                        <label for="Name" class="form-label"> ሙሉ ስም</label>
+                        <input type="text" class="form-control is-valid" id="name"  required>
+                        <!-- <div class="invalid-feedback">Invalid</div>
+                        <div class="valid-feedback">Valid</div>
+                         -->
+                        </div>
+                      <div class="mb-1">
+                        <label for="PhoneNumber" class="form-label">ስልክ ቁጥር</label>
+                        <input type="text" class="form-control is-valid" id="PhoneNumber"  required>
+                      </div>
+
+                      <div class="mb-1 mt-1">
+                        <label for="IdCard" class="form-label">መታወቂያዎን እዚህ ይስቀሉ</label>
+                        <input type="file" class="form-control is-valid" style="width: 100px;" placeholder="" id="uploadId" required>
+                      </div>
+                      
+                      
+                      <div class="form-check mb-1 py-2 mx-4">
+                        <input type="checkbox" class="form-check-input"  id="validationFormCheck1" style="cursor: pointer;" required>
+                        <label class="form-check-label" for="validationFormCheck1" style="cursor: pointer;">ተስማምቻለሁ</label>
+                        
+                      </div>
+                      </form>
+
+                      <button href="#members" class="btn btn-dark align-self-center mt-4 mb-3" id="add" style="width: 100px;">አስገባኝ</button>
+                </div>
+
+                    <!-- right -->
+                    
+                     <div class="col-md-6 col-sm-12 text-center py-5 right" id="members" style="box-shadow:  10px 9px 15px 0px #2f5c78; border-radius: 10px; height: auto; background:transparent;">
+                        
+
+                            <h5 class="mb-3">አባላቶች</h5>
+                            <table class="table bg-light" style="width:100%; color: #0a4366; " id="info">
+                                <tr>
+                                  <th>ስም</th>
+                                  <th >ስልክ ቁጥር</th>
+                                </tr>
+                               
+                              </table>
+                              
+                        <button id="check" class="btn btn-dark my-5" data-bs-toggle="modal" data-bs-target="#alert-modal">ዕጣ አዉጣ</button>
+                    </div>
+                                    
+            </div>
+
+        </div>
+    </main>
+
+    <div class="modal " id="alert-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="border: none !important;">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 20px; background-color:red; color: black !important;"></button>
+            </div>
+            <div class="modal-body" id="winner" style="color: #0a4366; font-weight: 300;">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <footer class="bottom-0 py-2">
+        <div class="container-fluid px-2" style="box-shadow: 0 0 5px #214f6c;">
+            <div class="row ">
+                <div class="col-md-12 d-flex flex-row justify-content-start align-content-center">
+
+            <label for="Name" class="form-label px-3"> ቋንቋ</label>
+            <select name="language" id="language" class="form-select-md">
+                </select>
+            
+                <script src="translate.js"></script>
+
+
+
+                <!-- <p style="font-size: 15; " class="align-self-end">Designed by Adane Hailu</p> -->
+                </div>
+            </div>
+
+
+            
+        </div>
+    </footer>
+    <!-- Upload Your Id-->
+    <!-- critical KYC element -->
+
+</div>
+
+<script>
+
+languages
+var languages = [
+  {
+    value: "am",
+    text: "አማርኛ"
+  },
+  {
+    value: "en",
+    text: "English"
+  },
+  {
+    value: "ti",
+    text: "ትግርኛ"
+  }
+];
+
+let languageSelect = document.querySelector("#language");
+
+for (const language of languages) {
+  const option = document.createElement("option");
+  option.value = language.value;
+  option.text = language.text;
+  languageSelect.appendChild(option);
+}
+// Translate the pages language
+
+
+
+// Choose Equbs
+var Equbs = [
+  {
+    value: 100,
+    text: "ባለ መቶ"
+  },
+  {
+    value: 500,
+    text: "ባለ አምስት መቶ"
+  },
+  {
+    value: 1000,
+    text: "ባለ አንድ ሺ"
+  }
+];
+let selectEqub = document.querySelector("#ekubs");
+
+for (const Equb of Equbs) {
+    const option = document.createElement("option");
+    option.value = Equb.value;
+    option.text = Equb.text;
+    selectEqub.appendChild(option);
+}
+
+
+
+
+// Translate
+function googleTranslateElementInit() {
+      var translator = new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,zh-CN,zh-TW',
+
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+   }, 'google_translate_element');
+}
+
+// selectEqub.options[selectEqub.lenght-1].text = "Melon";
+
+        let Add = document.querySelector('#add');
+        // let user = document.createElement('user');
+        // displayInfo.append(user);
+        
+        // alert Btn
+        let alertBtn = document.querySelector('#alert')
+        let showAlert = document.createElement('showAlert');
+        alertBtn.append(showAlert);
+        // for the check button
+        let checkWinner = document.querySelector('#check');
+        let inputCheck = document.querySelector("#validationFormCheck1").value;
+        let uploadId= document.querySelector("#uploadId").value;
+        
+        let table = document.querySelector('#info');
+
+        
+
+        
+        var ekub = {
+
+        userList: [],
+        // Money: []
+        };
+
+        // Display the user Name and Amount 
+        Add.onclick = function(){
+            
+            var Name = document.querySelector('#name').value;
+            var PhoneNumber = document.querySelector('#PhoneNumber').value;
+            
+        
+
+            // should be on input change
+            setTimeout(() => {
+                document.querySelector('.timeOut').remove();
+            },5000);
+
+
+            if(Name =='' || PhoneNumber ==''){
+                 showAlert.innerHTML = `<div class="alert  alert-dismissible fade show timeOut" role="alert">
+                                        እባኮን ክፍት ቦታዎቹን በትክክል ይሙሉ !
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>`
+                
+            }else if(isNaN(PhoneNumber)){
+                showAlert.innerHTML = `<div class="alert  alert-dismissible fade show timeOut" role="alert">
+                                        የተሳሳተ ስልክ ቁጥር አስገብተዋል !
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>`
+            }else if(!inputCheck){
+                showAlert.innerHTML = `<div class="alert  alert-dismissible fade show timeOut" role="alert">
+                                        እባኮን መታወቂያዎን እዚህ ይስቀሉ !
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>`
+            }
+            // else if(!uploadId){
+            //     showAlert.innerHTML = `<div class="alert  alert-dismissible fade show timeOut" role="alert">
+            //                             እባኮን መታወቂያዎን ይስቀሉ !
+            //                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            //                             </div>`
+            // }
+             else{
+                
+                // Amount isn't important here
+            ekub.userList.push({
+            Name: Name,
+            phone: PhoneNumber
+            });
+
+            let row = table.insertRow(-1);
+        var c = row.insertCell(0);
+        var c1 = row.insertCell(1);
+        // var c2 = row.insertCell(2);
+
+            c.innerHTML = Name;
+            c1.innerHTML = PhoneNumber;
+           
+                                    
+                                }
+                                
+                                
+        }
+
+
+        
+        // get TheRandom Winner and display 
+        checkWinner.onclick = function(){
+            
+            let rand = Math.floor(Math.random() * ekub.userList.length);
+            let winner = ekub.userList[rand];
+            let winnerName = String(winner.Name);
+
+            const selectedEkub = selectEqub.options[selectEqub.selectedIndex].value;
+
+            let MoneyAmount = ekub.userList.length * selectedEkub;
+        //     //  this should be on input change
+            setTimeout(() => {
+                document.querySelector('.timeOut').remove();
+            },5000);
+
+          
+
+             if(ekub.userList.length < 2){
+                document.querySelector("#winner").innerHTML = 
+                `
+        <h5 class= "py-3 text-center" style="color:red"> በዕቁብ ዝርዝር ውስጥ በቂ አባላት የሉም!</h5>
+        <p class="text-center" style="color:red">ዕቁቡን ለመጀመር ተጨማሪ አባላት ያስፈልጋሉ</p>
+                `
+            }
+             else
+            {
+   
+
+    document.querySelector("#winner").innerHTML = `<div class="p-3"><h1 class="text-center">🎉🎉🎉🎉</h1>
+        <h2>እንኳን ደስ አሎት! <span style="color:blue"> ${winnerName} <span> </h2>
+        <h3 class= "py-3">የመጀመሪያው ዙር <strong> የ <span style="color:blue"> ${MoneyAmount} </span></strong> ብር ዕጣ ወቶሎታል</h3>
+        <h1 class="text-center">🎉🎉🎉🎉</h1></div>`
+            }
+
+            
+
+            checkWinner.disabled = true;
+        }
+        
+
+
+
+
+
+    </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </body>
+</html>
