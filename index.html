@@ -392,12 +392,17 @@ reloadBtn.onclick = function(){
   // Clear the form.
   document.querySelector("#name").value = "";
   document.querySelector("#PhoneNumber").value = "";
+  let checkbox = document.querySelector("#validationFormCheck1");
+            let isChecked = checkbox.checked;
+
+            checkbox.checked = false;
   // document.querySelector("#uploadId").value = "";
 
   // Remove everything from the ekub.userList array.
   ekub.userList = [];
 
   // Enable all disabled buttons.
+
   Add.disabled = false;
   checkWinner.disabled = false;
 
