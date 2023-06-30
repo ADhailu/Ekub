@@ -367,7 +367,9 @@ function googleTranslateElementInit() {
   let phone = trElement.querySelector("td:nth-child(2)").textContent;
 
   // Remove the user from the ekub.userList array.
-  ekub.userList = ekub.userList.filter(user => user.Name !== name && user.phone !== phone);
+  let index = ekub.userList.indexOf(user => user.Name === name && user.phone === phone);
+  ekub.userList.splice(index, 1);
+
 
   // Remove the tr element from the table.
               trElement.remove();
